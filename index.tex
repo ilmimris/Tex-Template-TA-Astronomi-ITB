@@ -1,0 +1,103 @@
+% @author: Achmad Zainur Rozzykin
+% 
+
+%------------------------------------------------------------------------------------%
+% Tipe dokumen, menggunakan book-edited --> template, dengan satu kolom, cetak satu sisi, A4 dll. 
+%
+\documentclass[oneside, onecolumn, fleqn, a4paper, 12pt]{template_layout}
+
+%------------------------------------------------------------------------------------%
+% Package yang digunakan
+% Digunakan untuk memasukan gambar ke laporan.
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs,caption,fixltx2e}
+\usepackage[flushleft]{threeparttable}
+
+% The geometry package controls the overall margins and text area of the 
+% document. The package must be called in the preamble of the document and specified when called.
+\usepackage[left=4cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+
+% Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak rumus.
+\usepackage{amsmath}
+
+% The package hyperref provides LaTeX the ability to create hyperlinks within the document
+\usepackage{hyperref}
+
+% The url package allows spacing and line breaks that result in intelligent 
+% printing of email addresses, hypertext links, and path or directory addresses. 
+\usepackage{url}
+
+% agar gambar tidak selalu di atas atau di bawah
+\usepackage{float}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+
+% merger baris di tabel
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{color, openbib, rotate, amsfonts, amsmath, amssymb, amstext}
+\usepackage{makeidx}
+\usepackage[mathcal]{euscript}
+\usepackage[bahasai]{babel}
+\usepackage{listings}
+
+%------------------------------------------------------------------------------------%
+% hyphenation
+%
+\input{hype.indonesia}
+
+%------------------------------------------------------------------------------------%
+% Mendefinisikan perintah tambahan
+%
+\AtBeginDocument{\renewcommand{\bibname}{DAFTAR PUSTAKA}}
+\AtBeginDocument{\renewcommand{\contentsname}{DAFTAR ISI}}
+\AtBeginDocument{\renewcommand{\listfigurename}{DAFTAR GAMBAR}}
+\AtBeginDocument{\renewcommand{\listtablename}{DAFTAR TABEL}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\renewcommand{\index}{\arabic{indeks}}
+\newcommand{\pic}{Gambar}
+\newcommand{\tab}{Tabel}
+\newcommand{\equ}{Persamaan}
+
+%menghilangkan numbering di daftar pustaka
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+%------------------------------------------------------------------------------------%
+% Mulai menulis dokumen
+%
+\begin{document}
+\frontmatter
+\input{chapters/cover.tex}
+\newpage
+\pagestyle{empty}
+\input{chapters/pengesahan.tex}
+\newpage
+% mulai penomeran romawi
+\pagenumbering{roman}
+\input{chapters/pedoman.tex}
+\input{chapters/abstrak.tex}
+\input{chapters/abstract.tex}
+\input{chapters/quote1.tex}
+\input{chapters/quote2.tex}
+\pagestyle{plain}
+\input{chapters/prakata.tex}
+\input{chapters/sanwacana.tex}
+\tableofcontents
+\listoftables
+\listoffigures
+\mainmatter
+% mulai penomeran romawi
+\pagenumbering{arabic}
+\input{chapters/bab1.tex}
+\input{chapters/bab2.tex}
+\input{chapters/bab3.tex}
+\input{chapters/bab4.tex}
+\input{chapters/bab5.tex}
+\input{chapters/pustaka.tex}
+\appendix
+\input{chapters/lampiranA.tex}
+
+\end{document}
